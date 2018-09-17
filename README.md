@@ -5,8 +5,10 @@ Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'I
 ## Liste des Arguments
 
 |Argument|Valeur|Obligation|
+|-|-|-|
 |title|A définir|Obligatoire|
 |authors|Liste |Options|
+
 
 ### Authors
 
@@ -24,3 +26,7 @@ ou
 	- name: John Smith
 	- mail: jhon.smith@anonymous.yt
 ```
+
+## Comment appeler la template
+
+`pandoc Rapport.md -o Rapport.pdf --toc -N --template insa.latex`
