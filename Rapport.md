@@ -1,8 +1,9 @@
 ---
 title: Mon test
-author: 
-	- Jérôme Kompé
-	- Rémi Gascou
+authors: 
+	- name: Jérôme Kompé
+	  mail : jerome.kompe@gmail.com
+	- name: Rémi Gascou
 ---
 
 

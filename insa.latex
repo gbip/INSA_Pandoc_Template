@@ -1,13 +1,17 @@
 \documentclass[12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true, % colorise les liens
+	urlcolor=blue, % couleur des hyperliens 
+	linkcolor=black	% couleur des liens internes 
+}
 $if(title)$
 	\title{$title$}
 $endif$
-\author{$for(author)$$author$$sep$\\$endfor$}
+\author{$for(authors)$$if(authors.name)$$authors.name$ $if(authors.mail)$\href{mailto:$authors.mail$}{$authors.mail$}$endif$$else$$authors$$endif$$sep$\\$endfor$}
 \begin{document}
-
 $if(title)$
 \maketitle
 $endif$

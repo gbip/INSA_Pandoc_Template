@@ -1,2 +1,26 @@
 # INSA_Pandoc_Template
-Pandoc template for INSA's work
+
+Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'INSA de Toulouse.
+
+## Liste des Arguments
+
+|Argument|Valeur|Obligation|
+|title|A définir|Obligatoire|
+|authors|Liste |Options|
+
+### Authors
+
+__Exemple__:
+
+``` 
+- authors:
+	- John Smith
+```
+
+ou
+
+```
+- authors :
+	- name: John Smith
+	- mail: jhon.smith@anonymous.yt
+```
