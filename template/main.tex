@@ -1,4 +1,5 @@
 \documentclass[a4paper,11pt]{article}
+\usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{multirow,tabularx,colortbl,diagbox,makecell,fancybox} %Pour tout ce qui est tableaux (vraiment tout ce qu'il te faut XD)
@@ -8,7 +9,16 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry} %Pour paramétrer les dimmensions de la zone de texte de la page
 \usepackage{fancyhdr} %Pour personnaliser les header et footer
 \usepackage{hyperref} %Pour faire des liens webs cliquables et table des matières cliquable
-\usepackage[french]{babel}
+\usepackage{listings} % Pour le code
+\lstset{
+	backgroundcolor=\color{white},
+	basicstyle=\footnotesize,
+	breaklines=true,
+	captionpos=b,
+	commentstyle=\color{green},
+	keywordstyle=\color{orange},
+	stringstyle=\color{red},
+}
 \newcommand{\addstudent}[3]{#1 & #2 & \href{mailto:#3}{#3}\\}
 \newcommand{\addtutor}[2]{#1 & #2\\}
 $if(projecttitle)$
