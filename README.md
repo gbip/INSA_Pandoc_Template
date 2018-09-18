@@ -2,7 +2,7 @@
 
 Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'INSA de Toulouse.
 
-## Liste des Arguments
+## Liste des Arguments
 
 |Argument|Valeur|Obligation|
 |-|-|-|
@@ -27,7 +27,7 @@ ou
 	- mail: jhon.smith@anonymous.yt
 ```
 
-## Comment appeler la template
+## Comment appeler la template
 
 `pandoc Rapport.md -o Rapport.pdf --toc -N --template insa.latex`
 
