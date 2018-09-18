@@ -1,8 +1,8 @@
 ---
-projecttitle: Mon test
+projecttitle: Rapport Lucie Leclert
 
 students:
-	- surname: Kompé
+	- surname: KOMPE
 	  name: Jérôme
 	  mail : jerome.kompe@gmail.com
 	- surname: GASCOU
@@ -14,10 +14,9 @@ tutors:
 	  name: John
 ---
 
-
-
 # Hello
 
 It's me, ...
 
 ## How are you
+

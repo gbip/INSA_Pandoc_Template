@@ -9,11 +9,73 @@
 \usepackage{fancyhdr} %Pour personnaliser les header et footer
 \usepackage{hyperref} %Pour faire des liens webs cliquables et table des matières cliquable
 \usepackage[french]{babel}
+\newcommand{\addstudent}[3]{#1 & #2 & \href{mailto:#3}{#3}\\}
+\newcommand{\addtutor}[2]{#1 & #2\\}
+\def\projecttitle{
+    $if(projecttitle)$$projecttitle$$endif$
+}
+\def\students{
+  \begin{tabular}{lll}
+    \addstudent{Prenom}{Nom}{mail@example.com}
+  \end{tabular}
+}
+\def\tutors{
+  \begin{tabular}{lll}
+	$for(tutors)$\addtutor{$if(tutors.surname)$$tutors.surname$$endif$}{$if(tutors.name)$$tutors.name$$endif$$endfor$}
+  \end{tabular}
+}
+%\input{advanced.params/misc.commands.tex}
+%\input{advanced.params/titlevars.tex}
+\pagestyle{fancy}
+\renewcommand{\headrule}{}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{$if(type)$$type$$else$INSA Toulouse$endif$}
+\cfoot{}
+\rfoot{\thepage}
 
-\input{variables.tex}
-\input{advanced.params/misc.commands.tex}
-\input{advanced.params/titlevars.tex}
-\input{cover/covermain.tex} %Problème vient de la
+\AtBeginDocument{
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\noindent\begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
+    %\node[anchor=north east, align=right] (title) at (19.5,11.5) {\Huge{title}};
+    %\node[above = 5cm of current page.south, align=right] (author) {\Large{author}};
+    %\node[below = 0.5cm of author, align=center] (date) {date};
+    %Images
+    \node[anchor=north west] at (2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/logo_insat.pdf}};
+    \node[anchor=north west] at (2,26.25) {Département de Génie Électrique \& Informatique};
+    \node[anchor=north] at (21/2+1,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/univ.png}};
+    %\node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas.jpg}};
+    \node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas-light.png}};
+
+    % Textes
+    \node[above = 90pt of current page.center] (ptitle) {\parbox{\textwidth}{\centering\LARGE{\textbf{\projecttitle}}}};
+    \node[above = 12.5pt of ptitle.north] {\rule{4cm}{0.25mm}};
+    \node[below = 12.5pt of ptitle.south] {\rule{4cm}{0.25mm}};
+
+    \node[above = 230pt of current page.center] (rapport) {\Large{\textsc{$if(type)$$type$$else$INSA Toulouse$endif$}}};
+    \node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{ème}année Informatique et Réseaux}};
+
+    %\node[below = 25pt of current page.center] (pstudents) {\centering\begin{tabular}{lll}\students\end{tabular}};
+    \node[below = 25pt of current page.center] (pstudents) {\students};
+    \node[above = 5pt of pstudents] (pstudentstitle) {\textbf{Étudiants}};
+
+    %\node[below = 220pt of current page.center] (ptutors) {\centering\begin{tabular}{lll}\tutors\end{tabular}};
+    \node[below = 220pt of current page.center] (ptutors) {\tutors};
+    \node[above = 5pt of ptutors] (ptutorstitle) {\textbf{Tuteurs}};
+
+    \node[below = 50pt of pstudents] (pdate) {\today};
+\end{tikzpicture}
+\newpage
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+
+}
+
+\AtEndDocument{\input{cover/cover_out.tex}}
 
 \begin{document}
 
