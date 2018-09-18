@@ -1,0 +1,30 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow,tabularx,colortbl,diagbox,makecell,fancybox} %Pour tout ce qui est tableaux (vraiment tout ce qu'il te faut XD)
+\usepackage{amsfonts,amssymb,amsmath,mathrsfs,array,stmaryrd} %Tout ce qui est mathématiques, équations et tout
+\usepackage{pgf,tikz,xcolor} % Tout ce qui est graphiques, schémas
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc, fit, shapes, arrows, arrows.meta,fadings,through}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry} %Pour paramétrer les dimmensions de la zone de texte de la page
+\usepackage{fancyhdr} %Pour personnaliser les header et footer
+\usepackage{hyperref} %Pour faire des liens webs cliquables et table des matières cliquable
+\usepackage[francais]{babel}
+
+\input{variables.tex}
+\input{advanced.params/misc.commands.tex}
+\input{advanced.params/titlevars.tex}
+\input{cover/covermain.tex}
+
+\begin{document}
+
+$if(alignment)$
+\begin{$alignment$}
+$endif$
+
+$body$
+
+$if(alignment)$
+\end{$alignment$}
+$endif$
+
+\end{document}

@@ -1,0 +1,14 @@
+\newcommand{\addstudent}[3]{#1 & #2 & \href{mailto:#3}{#3}\\}
+\newcommand{\addtutor}[2]{#1 & #2\\}
+
+\def\projecttitle{
+    $if(projecttitle)$$projecttitle$$endif$
+}
+
+\def\students{
+    $for(students)$\addstudent{$if(students.name)$$students.name$$endif$}{$if(students.surname)$$students.surname$$endif$}{$if(students.mail)$\href{mailto:$students.mail$}{$students.mail$}$endif$}$endfor$
+}
+
+\def\tutors{
+    $for(tutors)$\addtutor{$if(tutors.surname)$$tutors.surname$$endif$}{$if(tutors.name)$$tutors.name$$endif$}
+}

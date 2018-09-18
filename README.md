@@ -14,7 +14,7 @@ Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'I
 
 __Exemple__:
 
-``` 
+```
 - authors:
 	- John Smith
 ```
@@ -30,3 +30,7 @@ ou
 ## Comment appeler la template
 
 `pandoc Rapport.md -o Rapport.pdf --toc -N --template insa.latex`
+
+Remi :
+
+`pandoc Rapport_PTUT.md -o Rapport_PTUT.pdf -N --template sources_latex/main.tex`
