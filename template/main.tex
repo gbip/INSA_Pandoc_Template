@@ -11,9 +11,10 @@
 \usepackage[french]{babel}
 \newcommand{\addstudent}[3]{#1 & #2 & \href{mailto:#3}{#3}\\}
 \newcommand{\addtutor}[2]{#1 & #2\\}
+$if(projecttitle)$
 \def\projecttitle{
-    $if(projecttitle)$$projecttitle$$endif$
-}
+    $projecttitle$
+}$endif$
 \def\students{
   \begin{tabular}{lll}
     \addstudent{Prenom}{Nom}{mail@example.com}
@@ -24,8 +25,33 @@
 	$for(tutors)$\addtutor{$if(tutors.surname)$$tutors.surname$$endif$}{$if(tutors.name)$$tutors.name$$endif$$endfor$}
   \end{tabular}
 }
-%\input{advanced.params/misc.commands.tex}
-%\input{advanced.params/titlevars.tex}
+%Title variables %
+\title{État de l’art associé au projet tuteuré \\ \vspace{0.5cm} \LARGE{\textbf{\projecttitle}} \vspace{0.75cm}}
+\author{\students \\ \vspace{1cm} \\ Tuteur : \tutor}
+\date{\today}\newcolumntype{L}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+
+% Misc commands %
+\newcommand\tab[1][0.6cm]{\hspace*{#1}} %Create and define tab
+\definecolor{lightgray}{gray}{0.85}
+\definecolor{lightgrey}{gray}{0.85}
+\definecolor{vlg}{gray}{0.85}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\hypersetup{	
+    colorlinks=true, % colorise les liens
+%    linkbordercolor={1 1 1},
+    breaklinks=true, % permet le retour à la ligne dans les liens trop longs
+    urlcolor=blue, % couleur des hyperliens 
+    linkcolor=black,	% couleur des liens internes 
+    citecolor=black,	% couleur des références 
+    pdftitle={Rapport INSA}, % informations apparaissant dans 
+    pdfauthor={}, % les informations du document 
+    pdfsubject={}	% sous Acrobat. 
+}
+
+% Footer %
 \pagestyle{fancy}
 \renewcommand{\headrule}{}
 \lhead{}
@@ -38,6 +64,8 @@
 \AtBeginDocument{
 \pagenumbering{gobble}
 \thispagestyle{empty}
+
+% Header with INSA image%
 \noindent\begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
     %\node[anchor=north east, align=right] (title) at (19.5,11.5) {\Huge{title}};
     %\node[above = 5cm of current page.south, align=right] (author) {\Large{author}};
@@ -50,10 +78,11 @@
     \node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas-light.png}};
 
     % Textes
-    \node[above = 90pt of current page.center] (ptitle) {\parbox{\textwidth}{\centering\LARGE{\textbf{\projecttitle}}}};
+    $if(projecttitle)$
+	\node[above = 90pt of current page.center] (ptitle) {\parbox{\textwidth}{\centering\LARGE{\textbf{\projecttitle}}}};
     \node[above = 12.5pt of ptitle.north] {\rule{4cm}{0.25mm}};
     \node[below = 12.5pt of ptitle.south] {\rule{4cm}{0.25mm}};
-
+	$endif$
     \node[above = 230pt of current page.center] (rapport) {\Large{\textsc{$if(type)$$type$$else$INSA Toulouse$endif$}}};
     \node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{ème}année Informatique et Réseaux}};
 
@@ -72,10 +101,7 @@
 \pagenumbering{arabic}
 \tableofcontents
 \newpage
-
 }
-
-\AtEndDocument{\input{cover/cover_out.tex}}
 
 \begin{document}
 

@@ -1,6 +1,6 @@
 ---
-projecttitle: Rapport Lucie Leclert
-
+projecttitle: SWOT Entreprise 3
+type: Rapport projet Tuteuré
 students:
 	- surname: KOMPE
 	  name: Jérôme
