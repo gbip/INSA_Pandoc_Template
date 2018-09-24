@@ -20,7 +20,7 @@ Si vous renommez le fichier main.tex en insa.tex par exemple, veuillez remplacer
 `pandoc -F filter.py  --listings -F Rapport.md -o Rapport.pdf --toc -N --template main`
 
 
-## TODO :
+## TODO :
 
 * Personnaliser si Laas ou pas.
 * Personnaliser apparitions students et/ou tutors
