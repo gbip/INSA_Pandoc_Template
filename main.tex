@@ -49,16 +49,22 @@ $if(projecttitle)$
 }$endif$
 \def\students{
   \begin{tabular}{lll}
-    $for(students)$
-		$if(students.surname)$
-		\addstudent{$students.name$}{$students.surname$}{$students.mail$}
-		$endif$
-	$endfor$
+	$if(students)$
+	    $for(students)$
+			$if(students.surname)$
+	\addstudent{$students.name$}{$students.surname$}{$students.mail$}
+			$endif$
+		$endfor$
+	$endif$
   \end{tabular}
 }
 \def\tutors{
   \begin{tabular}{lll}
-	$for(tutors)$\addtutor{$if(tutors.surname)$$tutors.surname$$endif$}{$if(tutors.name)$$tutors.name$$endif$$endfor$}
+	$if(tutors)$
+		$for(tutors)$
+	\addtutor{$if(tutors.surname)$$tutors.surname$$endif$}{$if(tutors.name)$$tutors.name$$endif$}
+		$endfor$
+	$endif$
   \end{tabular}
 }
 %Title variables %
@@ -123,13 +129,16 @@ $if(projecttitle)$
     \node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{ème}année Informatique et Réseaux}};
 
     %\node[below = 25pt of current page.center] (pstudents) {\centering\begin{tabular}{lll}\students\end{tabular}};
-    \node[below = 25pt of current page.center] (pstudents) {\students};
-    \node[above = 5pt of pstudents] (pstudentstitle) {\textbf{Étudiants}};
+	    \node[below = 25pt of current page.center] (pstudents) {\students};
+	$if(students)$
+    	\node[above = 5pt of pstudents] (pstudentstitle) {\textbf{Étudiants}};
+	$endif$
 
     %\node[below = 220pt of current page.center] (ptutors) {\centering\begin{tabular}{lll}\tutors\end{tabular}};
-    \node[below = 220pt of current page.center] (ptutors) {\tutors};
-    \node[above = 5pt of ptutors] (ptutorstitle) {\textbf{Tuteurs}};
-
+    	\node[below = 220pt of current page.center] (ptutors) {\tutors};
+	$if(tutors)$
+	    \node[above = 5pt of ptutors] (ptutorstitle) {\textbf{Tuteurs}};
+	$endif$
     \node[below = 50pt of pstudents] (pdate) {\today};
 \end{tikzpicture}
 \newpage
