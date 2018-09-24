@@ -7,10 +7,11 @@ Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'I
 |Argument|Valeur|Obligation|
 |-|-|-|
 |projecttitle|String|Obligatoire|
-|type|String (Default : "INSA Toulouse")|Options
-|student|Liste (attributs : `surname` & `name` & `mail`)|Obligatoire|
+|type|String (Default : "INSA Toulouse")|Options|
+|laas| Boolean | Option |
+|students|Liste (attributs : `surname` & `name` & `mail`)|Obligatoire|
 |tutors|Liste (attributs : `surname` & `name`)|Options|
-
+|english| Boolean|Option|
 
 ## Comment appeler la template
 
@@ -21,10 +22,6 @@ Si vous renommez le fichier main.tex en insa.tex par exemple, veuillez remplacer
 
 
 ## TODO :
-
-* Personnaliser si Laas ou pas.
-* Personnaliser apparitions students et/ou tutors
-* Personnaliser langage (FR ou ENG)
 
 ## License : 
 This repository is under Apache 2.0 License. 

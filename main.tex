@@ -1,5 +1,9 @@
 \documentclass[a4paper,11pt]{article}
+$if(english)$
+\usepackage[english]{babel}
+$else$
 \usepackage[french]{babel}
+$endif$
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{multirow,tabularx,colortbl,diagbox,makecell,fancybox} %Pour tout ce qui est tableaux (vraiment tout ce qu'il te faut XD)
@@ -114,7 +118,12 @@ $if(projecttitle)$
     %\node[below = 0.5cm of author, align=center] (date) {date};
     %Images
     \node[anchor=north west] at (2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/logo_insat.pdf}};
-    \node[anchor=north west] at (2,26.25) {Département de Génie Électrique \& Informatique};
+   	$if(english)$
+	\node[anchor=north west] at (2,26.25) {Department of Computer and Electrical Engineering};
+	$else$
+	\node[anchor=north west] at (2,26.25) {Département de Génie Électrique \& Informatique};
+	$endif$
+   Department of Computer and Electrical Engineering 
     $if(laas)$
 	\node[anchor=north] at (21/2+1,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/univ.png}};
     %\node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas.jpg}};
@@ -129,18 +138,30 @@ $if(projecttitle)$
     \node[below = 12.5pt of ptitle.south] {\rule{4cm}{0.25mm}};
 	$endif$
     \node[above = 230pt of current page.center] (rapport) {\Large{\textsc{$if(type)$$type$$else$INSA Toulouse$endif$}}};
-    \node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{ème}année Informatique et Réseaux}};
+	$if(english)$
 
+	\node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{th} year of Computer and Network}};
+	$else$
+	\node[below = 15pt of rapport] (rapport_year) {\textsc{4\textsuperscript{ème}année Informatique et Réseaux}};
+	$endif$
     %\node[below = 25pt of current page.center] (pstudents) {\centering\begin{tabular}{lll}\students\end{tabular}};
 	    \node[below = 25pt of current page.center] (pstudents) {\students};
 	$if(students)$
+		$if(english)$
+		\node[above = 5pt of pstudents] (pstudentstitle) {\textbf{Students}};
+		$else$
     	\node[above = 5pt of pstudents] (pstudentstitle) {\textbf{Étudiants}};
+		$endif$
 	$endif$
 
     %\node[below = 220pt of current page.center] (ptutors) {\centering\begin{tabular}{lll}\tutors\end{tabular}};
     	\node[below = 220pt of current page.center] (ptutors) {\tutors};
 	$if(tutors)$
+		$if(english)$
+	    \node[above = 5pt of ptutors] (ptutorstitle) {\textbf{Tutors}};
+		$else$
 	    \node[above = 5pt of ptutors] (ptutorstitle) {\textbf{Tuteurs}};
+		$endif$
 	$endif$
     \node[below = 50pt of pstudents] (pdate) {\today};
 \end{tikzpicture}
