@@ -115,10 +115,13 @@ $if(projecttitle)$
     %Images
     \node[anchor=north west] at (2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/logo_insat.pdf}};
     \node[anchor=north west] at (2,26.25) {Département de Génie Électrique \& Informatique};
-    \node[anchor=north] at (21/2+1,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/univ.png}};
+    $if(laas)$
+	\node[anchor=north] at (21/2+1,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/univ.png}};
     %\node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas.jpg}};
     \node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/laas-light.png}};
-
+	$else$
+	\node[anchor=north east] at (21-2,27.7) {\includegraphics[height=1.225cm, keepaspectratio]{cover/meta/univ.png}};
+	$endif$
     % Textes
     $if(projecttitle)$
 	\node[above = 90pt of current page.center] (ptitle) {\parbox{\textwidth}{\centering\LARGE{\textbf{\projecttitle}}}};
