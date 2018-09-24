@@ -9,9 +9,9 @@ students:
 	  mail : jerome.kompe@gmail.com
 	- name: Rémi Gascou
 tutors:
-	- name: Jérôme Kompé
+	- surname: Jérôme Kompé
 	  mail : jerome.kompe@gmail.com
-	- name: Rémi Gascou
+	- surname: Rémi Gascou
 ---
 
 

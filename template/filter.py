@@ -11,19 +11,20 @@ def tbl_caption(s):
 
 def tbl_alignment(s):
     aligns = {
-        "AlignDefault": 'l',
+        "AlignDefault": 'c',
         "AlignLeft": 'l',
         "AlignCenter": 'c',
         "AlignRight": 'r',
     }
-    return ''.join([aligns[e['t']] for e in s])
+    return '|'+'|'.join([aligns[e['t']] for e in s])+'|'
+
 
 def tbl_headers(s):
     result = s[0][0]['c'][:]
     for i in range(1, len(s)):
         result.append(inlatex(' & '))
         result.extend(s[i][0]['c'])
-    result.append(inlatex(r' \\\midrule'))
+    result.append(inlatex(r' \\ \hline'))
     return pf.Para(result)
 
 def tbl_contents(s):
@@ -34,18 +35,17 @@ def tbl_contents(s):
             para.extend(col[0]['c'])
             para.append(inlatex(' & '))
         result.extend(para)
-        result[-1] = inlatex(r' \\' '\n')
+        result[-1] = inlatex(r' \\ \hline' '\n')
     return pf.Para(result)
 
 def do_filter(k, v, f, m):
     if k == "Table":
         return [latex(r'\begin{table}[ht]' '\n' r'\centering' '\n'),
-                tbl_caption(v[0]),
                 latex(r'\begin{tabular}{@{}%s@{}}' % tbl_alignment(v[1]) +
-                      ('\n' r'\toprule')),
+					('\n' r'\hline')),
                 tbl_headers(v[3]),
                 tbl_contents(v[4]),
-                latex(r'\bottomrule' '\n' r'\end{tabular}'),
+                latex(r'\end{tabular}'),
                 latex(r'\end{table}')]
 
 

@@ -20,15 +20,15 @@ It's me, ...
 
 ## How are you
 
-`C`
 
-```java
-/**Testing my bros */
-public static void main(String[] args){
-	System.out.println("Coucou");
-}
-```
-
-|Colonne 1 | Colonne 2|
+|Colonne 1 | Colonne 2 |
 |-|-|
-|Argument 1 | Argument 2|
+|Arg 1 | Arg 2|
+|Arg 3 | Arg 4|
+
+
+
+```python
+def main:
+	print("Coucou")
+```

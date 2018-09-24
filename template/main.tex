@@ -12,19 +12,10 @@
 \definecolor{greencomments}{rgb}{0,0.5,0}
 \definecolor{bluekeywords}{rgb}{0.13,0.13,1}
 \definecolor{redstrings}{rgb}{0.9,0,0}
+\definecolor{codeBackground}{HTML}{f5f5f0}
 \usepackage{listings} % Pour le code
-%\lstset{
-%	backgroundcolor=\color{white},
-%	basicstyle=\footnotesize,
-%	breaklines=true,
-%	captionpos=b,
-%	keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
-%	stringstyle=\color[rgb]{0.31,0.60,0.02},
-%	commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
-%}
-
 \lstset{ 
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  backgroundcolor=\color{codeBackground},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
@@ -33,7 +24,6 @@
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-%  frame=single,	                   % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{bluekeywords},       % keyword style
   morekeywords={*,...},            % if you want to add more keywords to the set
@@ -48,10 +38,9 @@
   stringstyle=\color{redstrings},     % string literal style
   tabsize=4,	                   % sets default tabsize to 2 spaces
   xleftmargin=\parindent,
- % identifierstyle=\color{blue},
-  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  frameshape={RYR}{Y}{Y}{RYR},
 }
-
+%\new\colorbox{blue}{\lstinline[basicstyle=\ttfamily\color{white}]|<List>|} 
 \newcommand{\addstudent}[3]{#1 & #2 & \href{mailto:#3}{#3}\\}
 \newcommand{\addtutor}[2]{#1 & #2\\}
 $if(projecttitle)$
