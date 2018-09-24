@@ -23,5 +23,9 @@ Si vous renommez le fichier main.tex en insa.tex par exemple, veuillez remplacer
 
 ## TODO :
 
+* Personnaliser département.
+* Ajouter logo TLS-SEC
+
+
 ## License : 
 This repository is under Apache 2.0 License. 
