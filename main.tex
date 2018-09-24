@@ -49,7 +49,11 @@ $if(projecttitle)$
 }$endif$
 \def\students{
   \begin{tabular}{lll}
-    \addstudent{Prenom}{Nom}{mail@example.com}
+    $for(students)$
+		$if(students.surname)$
+		\addstudent{$students.name$}{$students.surname$}{$students.mail$}
+		$endif$
+	$endfor$
   \end{tabular}
 }
 \def\tutors{
