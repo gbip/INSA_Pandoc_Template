@@ -17,7 +17,7 @@ Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'I
 Après avoir copier le fichier main.tex et le dossier cover  dans le dossier `~/.pandoc/templates`. 
 Si vous renommez le fichier main.tex en insa.tex par exemple, veuillez remplacer le main ici par insa.
 
-`pandoc -F filter.py  --listings -F Rapport.md -o Rapport.pdf --toc -N --template main`
+`pandoc -F filter.py  --listings -F Rapport.md -o Rapport.pdf --template main`
 
 
 ## TODO :
