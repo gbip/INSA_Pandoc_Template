@@ -1,3 +1,2 @@
 #!/bin/bash
-
-pandoc Rapport.md -o Rapport.pdf --toc -N --template insa.latex
+pandoc -F mermaid-filter -F filter.py --listings  Rapport_PTUT.md -o Rapport_PTUT.pdf --template main.tex
