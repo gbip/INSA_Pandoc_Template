@@ -6,31 +6,22 @@ Un projet pour écrire un template pandoc afin de rédiger des rapports pour l'I
 
 |Argument|Valeur|Obligation|
 |-|-|-|
-|title|A définir|Obligatoire|
-|authors|Liste |Options|
+|projecttitle|String|Obligatoire|
+|type|String (Default : "INSA Toulouse")|Options
+|student|Liste (attributs : `surname` & `name` & `mail`)|Obligatoire|
+|tutors|Liste (attributs : `surname` & `name`)|Options|
 
-
-### Authors
-
-__Exemple__:
-
-```
-- authors:
-	- John Smith
-```
-
-ou
-
-```
-- authors :
-	- name: John Smith
-	- mail: jhon.smith@anonymous.yt
-```
 
 ## Comment appeler la template
 
-`pandoc Rapport.md -o Rapport.pdf --toc -N --template insa.latex`
+Après avoir copier le fichier main.tex et le dossier cover  dans le dossier `~/.pandoc/templates`. 
+Si vous renommez le fichier main.tex en insa.tex par exemple, veuillez remplacer le main ici par insa.
 
-Remi :
+`pandoc -F filter.py  --listings -F Rapport.md -o Rapport.pdf --toc -N --template main`
 
-`pandoc Rapport_PTUT.md -o Rapport_PTUT.pdf -N --template sources_latex/main.tex`
+
+## TODO :
+
+* Personnaliser si Laas ou pas.
+* Personnaliser apparitions students et/ou tutors
+* Personnaliser langage (FR ou ENG)
